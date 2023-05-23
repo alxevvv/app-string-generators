@@ -11,7 +11,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import GenNanoId from './components/GenNanoId.vue';
 import GenUuid from './components/GenUuid.vue';
 </script>

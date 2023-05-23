@@ -2,7 +2,7 @@
   <h2>NanoID</h2>
   <p>
     <input v-model="length" type="number" min="1" step="1" />
-    <button type="button" @click="generate">Generate</button>
+    <button type="button" @click="generate()">Generate</button>
   </p>
   <p>
     <pre>{{ result }}</pre>
@@ -14,17 +14,19 @@
   </p>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { nanoid } from "nanoid";
-import { watch, ref, onMounted } from "vue";
+import { watchEffect, ref, onMounted } from "vue";
 import { useClipboard } from "@vueuse/core";
 
-const props = defineProps({
-  defaultLength: {
-    type: Number,
-    default: 10,
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    defaultLength: number;
+  }>(),
+  {
+    defaultLength: 10,
+  }
+);
 
 const length = ref(props.defaultLength);
 const result = ref("");
@@ -40,7 +42,5 @@ function copyToClipboard() {
   generate();
 }
 
-watch(() => generate(length.value));
-
-onMounted(generate);
+watchEffect(() => generate(length.value));
 </script>

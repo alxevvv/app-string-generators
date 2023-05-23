@@ -1,7 +1,7 @@
 <template>
   <h2>UUID v4</h2>
   <p>
-    <button type="button" @click="generate">Generate</button>
+    <button type="button" @click="generate()">Generate</button>
   </p>
   <p>
     <pre>{{ result }}</pre>
@@ -13,7 +13,7 @@
   </p>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { v4 as uuid } from "uuid";
 import { ref, onMounted } from "vue";
 import { useClipboard } from "@vueuse/core";
