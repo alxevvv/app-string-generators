@@ -1,0 +1,94 @@
+:root {
+  --main-bg-light: #dadada;
+  --code-bg-light: #c0c0c0;
+  --main-fg-light: #383838;
+  --code-fg-light: #474747;
+
+  --main-bg-dark: #474747;
+  --code-bg-dark: #c0c0c0;
+  --main-fg-dark: #dadada;
+  --code-fg-dark: #383838;
+}
+
+body {
+  background-color: var(--main-bg-light);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: var(--main-fg-light);
+}
+
+body[color-scheme="dark"] {
+  background-color: var(--main-bg-dark);
+  color: var(--main-fg-dark);
+}
+
+header {
+  position: relative;
+  font-size: 48px;
+  text-align: center;
+  padding: 32px 0 12px;
+}
+
+header > span {
+  padding: 24px;
+  background-color: white;
+  border-radius: 100%;
+  box-shadow: 11px 21px 35px -1px #0000001a;
+}
+
+.dark-mode-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 6px;
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  background-color: #f3d439de;
+  color: #e44a1c;
+}
+
+body[color-scheme="dark"] .dark-mode-button {
+  background-color: #030b4ed5;
+  color: #eee8af;
+}
+
+.dark-mode-button:active {
+  padding: 7px 5px 5px 7px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 640px;
+  text-align: center;
+}
+
+pre {
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 3px;
+  margin: 0.4em auto 0.25em;
+  padding: 0.25em 0.4em;
+  background: var(--code-bg-light);
+  color: var(--code-fg-light);
+}
+
+body[color-scheme="dark"] pre {
+  background: var(--code-bg-dark);
+  color: var(--code-fg-dark);
+}
+
+hr {
+  opacity: 0.5;
+}
+
+body[color-scheme="dark"] hr {
+  opacity: 0.25;
+}

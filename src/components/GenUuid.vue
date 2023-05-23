@@ -4,7 +4,7 @@
     <button type="button" @click="generate()">Generate</button>
   </p>
   <p>
-    <pre>{{ result }}</pre>
+  <pre>{{ result }}</pre>
   </p>
   <p>
     <button type="button" @click="copyToClipboard">
