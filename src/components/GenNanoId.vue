@@ -3,6 +3,13 @@
   <p>
     <input v-model="length" type="number" min="1" step="1" />
     <button type="button" @click="generate()">Generate</button>
+    <button type="button" @click="save()">Save</button>
+  </p>
+  <p>
+    <button v-for="l in savedLengths" :key="l" type="button" @click="length = l">
+      {{ l }}
+    </button>
+    <button v-if="savedLengths.length" type="button" @click="clear()">Clear</button>
   </p>
   <p>
   <pre>{{ result }}</pre>
@@ -17,7 +24,7 @@
 <script setup lang="ts">
 import { nanoid } from "nanoid";
 import { watchEffect, ref } from "vue";
-import { useClipboard } from "@vueuse/core";
+import { useClipboard, useStorage } from "@vueuse/core";
 
 const props = withDefaults(
   defineProps<{
@@ -28,13 +35,25 @@ const props = withDefaults(
   }
 );
 
-const length = ref(props.defaultLength);
+const length = useStorage<number>('nanoid-current-length', props.defaultLength);
 const result = ref("");
+
+const savedLengths = useStorage<number[]>('nanoid-saved-lengths', []);
 
 const { copy, copied } = useClipboard({ source: result });
 
 function generate(len = length.value) {
   result.value = nanoid(len);
+}
+
+function save() {
+  const updatedArray = Array.from(new Set([...savedLengths.value, length.value]))
+  updatedArray.sort((a, b) => a - b);
+  savedLengths.value = updatedArray;
+}
+
+function clear() {
+  savedLengths.value = [];
 }
 
 function copyToClipboard() {
