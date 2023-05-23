@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { nanoid } from "nanoid";
-import { watchEffect, ref, onMounted } from "vue";
+import { watchEffect, ref } from "vue";
 import { useClipboard } from "@vueuse/core";
 
 const props = withDefaults(

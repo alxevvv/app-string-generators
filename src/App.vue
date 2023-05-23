@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import GenNanoId from './components/GenNanoId.vue';
-import GenUuid from './components/GenUuid.vue';
+import GenNanoId from "./components/GenNanoId.vue"
+import GenUuid from "./components/GenUuid.vue"
 </script>
 
 <style>

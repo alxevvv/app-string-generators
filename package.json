@@ -1,7 +1,11 @@
 {
-  "name": "vite-vue-typescript-starter",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@alxevvv/app-string-generators",
+  "license": "MIT",
+  "version": "0.1.0",
+  "author": {
+    "name": "Vladislav Alexeev",
+    "email": "alxevvv@gmail.com"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +19,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@types/node": "^20.2.3",
     "@types/uuid": "^9.0.1",
     "@vitejs/plugin-vue": "^4.1.0",
     "typescript": "^5.0.2",
