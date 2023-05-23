@@ -1,13 +1,9 @@
 :root {
   --main-bg-light: #dadada;
-  --code-bg-light: #c0c0c0;
   --main-fg-light: #383838;
-  --code-fg-light: #474747;
 
   --main-bg-dark: #474747;
-  --code-bg-dark: #c0c0c0;
   --main-fg-dark: #dadada;
-  --code-fg-dark: #383838;
 }
 
 body {
@@ -70,25 +66,15 @@ main {
   text-align: center;
 }
 
-pre {
-  display: inline-block;
-  font-size: 24px;
-  border-radius: 3px;
-  margin: 0.4em auto 0.25em;
-  padding: 0.25em 0.4em;
-  background: var(--code-bg-light);
-  color: var(--code-fg-light);
-}
-
-body[color-scheme="dark"] pre {
-  background: var(--code-bg-dark);
-  color: var(--code-fg-dark);
-}
-
 hr {
   opacity: 0.5;
 }
 
 body[color-scheme="dark"] hr {
   opacity: 0.25;
+}
+
+input,
+button {
+  font-size: 24px;
 }

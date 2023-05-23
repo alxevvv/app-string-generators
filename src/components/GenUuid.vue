@@ -4,18 +4,15 @@
     <button type="button" @click="generate()">Generate</button>
   </p>
   <p>
-  <pre>{{ result }}</pre>
-  </p>
-  <p>
-    <button type="button" @click="copyToClipboard">
-      <span v-if="copied">✓&nbsp;</span>Copy
+    <button type="button" @click="copy()">
+      <span v-if="copied">✓&nbsp;</span>{{ result }}
     </button>
   </p>
 </template>
 
 <script setup lang="ts">
 import { v4 as uuid } from "uuid";
-import { ref, onMounted } from "vue";
+import { ref, watch } from "vue";
 import { useClipboard } from "@vueuse/core";
 
 const result = ref("");
@@ -26,10 +23,5 @@ function generate() {
   result.value = uuid();
 }
 
-function copyToClipboard() {
-  copy();
-  generate();
-}
-
-onMounted(generate);
+watch(copied, (val) => !val && generate(), { immediate: true })
 </script>
